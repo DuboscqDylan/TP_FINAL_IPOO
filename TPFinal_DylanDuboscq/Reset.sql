@@ -1,0 +1,10 @@
+ALTER TABLE empresa AUTO_INCREMENT = 1;
+ALTER TABLE viaje AUTO_INCREMENT = 1;
+ALTER TABLE responsable AUTO_INCREMENT = 1;
+TRUNCATE TABLE empresa;
+TRUNCATE TABLE responsable;
+TRUNCATE TABLE viaje;
+DELETE FROM empresa;
+DELETE FROM  viaje;
+DELETE FROM  pasajero;
+DELETE FROM   responsable;
