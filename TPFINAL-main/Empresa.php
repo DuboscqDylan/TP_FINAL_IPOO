@@ -1,7 +1,7 @@
 <?php 
-include_once "BaseDatos.php";
+include_once "./BaseDatos.php";
 class Empresa{
-    private $idEmpresa;
+    private $idempresa;
     private $nombre;
     private $direccion;
     private $mensajeOperacion;
@@ -9,7 +9,7 @@ class Empresa{
     //Metodo Constructor
     public function __construct()
     {
-        $this->idEmpresa=0;
+        $this->idempresa=0;
         $this->nombre="";
         $this->direccion="";
     }
@@ -21,7 +21,7 @@ class Empresa{
 
     //Getters
     public function getIdEmpresa(){
-        return $this->idEmpresa;
+        return $this->idempresa;
     }
     public function getNombre(){
         return $this->nombre;
@@ -35,7 +35,7 @@ class Empresa{
 
     //Setters
     public function setIdEmpresa($idempresa){
-        $this->idEmpresa=$idempresa;
+        $this->idempresa=$idempresa;
     }
     public function setNombre($enombre){
         $this->nombre=$enombre;
@@ -121,7 +121,7 @@ class Empresa{
         $respuesta=false;
 
         if ($baseDatos->Iniciar()) {
-            $consultaEliminar="DELETE FROM empresa WHERE idempresa=".$this->getIdEmpresa();
+            $consultaEliminar="DELETE FROM empresa WHERE idempresa=" . $this->getIdEmpresa() ;
             if ($baseDatos->Ejecutar($consultaEliminar)) {
                 $respuesta=true;
             }else {

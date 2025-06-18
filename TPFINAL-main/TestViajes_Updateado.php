@@ -1,10 +1,10 @@
 <?php
 
 include_once './Empresa.php';
-include_once './ResponsableV.php';
+include_once './Responsable.php';
 include_once './Pasajero.php';
 include_once './Viaje.php';
-
+/*
 $empresaV = new Empresa();
 $empresaV->cargar("Empresa Vuelo", "San Martin 123");
 $empresaA = new Empresa();
@@ -62,7 +62,7 @@ $pasajeroDos->insertar();
 $pasajeroTres->insertar();
 $pasajeroCuatro->insertar();
 $pasajeroCinco->insertar();
-
+*/
 do{
     
     mostrarMenu();
@@ -157,7 +157,7 @@ do{
             }while(!$seguir);
             
             $viaje = new Viaje();
-            $viaje->cargar($destinoV,$cantMaxP,$idE,$idR,$importeV);
+            $viaje->cargar($destinoV,$cantMaxP,$empresa,$responsable,$importeV);
             if($viaje->insertar()){
                 echo "El viaje ha sido registrado con exito \n";
             }else{
@@ -246,16 +246,15 @@ do{
             echo "Ingrese el telefono del pasajero \n";
             $telefonoP = trim(fgets(STDIN));
             $pasajeroP = new Pasajero();
-            $pasajeroP->cargar($documentoP, $nombreP, $apellidoP, $telefonoP,$viaje);
             do{
                 
                 echo "Ingrese el id del viaje que quiere realizar \n";
-                $idViajeP = trim(fgets(STDIN));
+                $idViajeP = trim(fgets(STDIN));7
                 $viajeP = new Viaje();
                 
                 if($viajeP->buscar($idViajeP)){
                     $seguir = true;
-                    $pasajeroP->setObjViaje($viajeP);
+                    $pasajeroP->cargar($documentoP, $nombreP, $apellidoP, $telefonoP,$viaje);
                 }else{
                     echo "El viaje de id: " . $idViajeP . " no existe, pruebe de nuevo";
                 }

@@ -141,8 +141,7 @@ class Viaje{
         if ($baseDatos->Iniciar()) {
             $consultaInsertar="INSERT INTO viaje(vdestino,vcantmaxpasajeros, idempresa, rnumeroempleado,vimporte) 
             VALUES('".$this->getDestino()."', '".$this->getCantMaxPasajeros()."', '".$this->getEmpresa()->getIdEmpresa()."', '".$this->getResponsable()->getNumeroEmpleado()."', '".$this->getImporte()."')";
-            $id=$baseDatos->devuelveIDInsercion($consultaInsertar);
-            if ($id!=null) {
+            if ($id = $baseDatos->devuelveIDInsercion($consultaInsertar)) {
                 $this->setIdViaje($id);
                 $respuesta=true;
             }else {
