@@ -120,7 +120,7 @@ class Pasajero{
         
         if ($baseDatos->Iniciar()) {
             $consultaInsertar="INSERT INTO pasajero(pdocumento,pnombre, papellido, ptelefono) 
-            VALUES('".$this->getNumeroDocumento()."', '".$this->getNombre()."', '".$this->getApellido()."', ".$this->getTelefono()./*", ".$this->getObjViaje()->getIdViaje().*/")";
+            VALUES('".$this->getNumeroDocumento()."', '".$this->getNombre()."', '".$this->getApellido()."', ".$this->getTelefono().")";
             $id=$baseDatos->devuelveIDInsercion($consultaInsertar);
             if ($id!=null) {
                 $this->setIdPasajero($id);
