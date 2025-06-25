@@ -6,7 +6,6 @@ class Pasajero{
     private $nombre;
     private $apellido;
     private $telefono;
-    //private $objViaje;
     private $mensajeOperacion;
     //Metodo Constructor
     public function __construct()
